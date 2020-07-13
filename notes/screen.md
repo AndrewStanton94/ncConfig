@@ -2,29 +2,47 @@
 
 ## Starting screen
 
-screen
-screen -S SESSION_NAME
+`screen`
+`screen -S SESSION_NAME`
 
 ## List existing sessions
 
-screen -ls
+`screen -ls`
 
 ## Reconnect to screen
 
-screen -r SESSION_NAME
+`screen -r SESSION_NAME`
 
 ### Reconnect to screen if screen is being uncooperative
 
-screen -D -R
+`screen -D -R`
 
-## Commands
+## Commands in screen
 
-<C-a>	Trigger
+`<C-a>`	Trigger plus one of the commands below
 
-0..9	Move to screen
-k		Kill screen
-c		Create new screen
-A		Name the screen
-Q		Remove splits
-S		Split
-TAB		Move between windows
+### Screen management
+
+- `c`		Create new screen
+- `0..9`	Move to screen
+- `A`		Name the screen
+- `k`		Kill screen
+
+### Splits
+
+Don't think of a split as belonging to an existing screen. This isn't a hieracrchy, just a way of seeing 2 screens at once.
+
+- `S`		Split the screen
+- `TAB`	Move between the splits.
+    _In the gap, create a new screen or select an existing one_
+- `Q`		Remove splits
+
+## Making safe
+
+By default the `x` key is bound to a screen log function. This doesn't accept my password so I have to close the SSH session and reconnect. This can be prevented with:
+
+```
+bind x
+```
+
+This maps the `x` to nothing.
